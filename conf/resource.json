@@ -1,0 +1,8 @@
+{
+  "name": "metel-v2019-access-web",
+  "port": 3001,
+  "description": "metel流量监控web",
+  "url": {
+    "access": "http://127.0.0.1:3000"
+  }
+}
