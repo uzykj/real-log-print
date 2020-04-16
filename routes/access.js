@@ -8,25 +8,18 @@ const router = express.Router();
 const message = require('../util/space-util');
 
 router.get('/', (req, res, next) => {
-    let power = req.cookies.power;
-    power = power === undefined ? false : power;
     let arr = message.concat();
-    if (message.length >= 50) message.splice(0, 30);
-    arr = arr.map(x => JSON.parse(x));
+    // if (message.length >= 50) message.splice(0, 30);
     arr.reverse();
     res.render('pages/access', {
         data: arr,
-        power: power
     });
 });
 
 router.get('/access', (req, res, next) => {
-    let power = req.cookies.power;
-    power = power === undefined ? false : power;
     let arr = message.concat();
-    if (message.length >= 50)message.splice(0, 30);
-    arr = arr.map(x => JSON.parse(x));
+    // if (message.length >= 50) message.splice(0, 30);
     arr.reverse();
-    res.json({data: arr, power: power});
+    res.json({data: arr});
 });
 module.exports = router;

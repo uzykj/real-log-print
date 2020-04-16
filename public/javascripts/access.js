@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var myInterval = window.setInterval(accessFun, 3000);
+    var myInterval = window.setInterval(accessFun, 2000);
 
     function stopInterval() {
         window.clearTimeout(myInterval);
@@ -7,7 +7,7 @@ $(document).ready(function () {
     }
 
     //超时时间
-    window.setTimeout(stopInterval, 5000000000);
+    window.setTimeout(stopInterval, 50000);
 });
 
 
@@ -22,26 +22,12 @@ function accessFun() {
             if (result.length > 0) {
                 let html = "";
                 for (var i = 0; i < result.length; i++) {
+                    var item = result[i];
                     html +=
                         `<tr>
-                            <td>
-                                ${result[i].account.nickname !== '' ? `${result[i].account.nickname}(${result[i].account.uid})` : result[i].account.uid} 
-                            </td>
-                            <td>${result[i].account.organName !== '' ? `${result[i].account.organName}(${result[i].account.oid})` : result[i].account.oid} </td>
-                            <td>${result[i].account.ips} </td>
-                            <td>${result[i].type === 1 ? '课程' : '资源'}</td>`
-                    if (result[i].context.status) {
-                        html += `<td class="td_green" >${result[i].context.message}</td>`;
-                        html += `<td>
-                                    <span class="span_info">${result[i].context.astrict.used}</span>
-                                </td>`;
-                    } else {
-                        html += `<td class="td_red">${result[i].context.message}</td>`;
-                        html += `<td>
-                                    <span class="td_red">${result[i].context.astrict.power}</span>                               
-                                </td>`;
-                    }
-                    html += `</tr>`;
+                            <td style="width: 15%; height: 100px">${item.time}</td>
+                            <td style="width: 85%; height: 100px">${JSON.stringify(item.logData)}</td>
+                        </tr>`;
                 }
                 $('#access_tbody').empty().html(html);
             }

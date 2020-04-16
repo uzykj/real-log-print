@@ -10,7 +10,6 @@
     "debug": "~2.6.9",
     "ejs": "^2.6.1",
     "express": "~4.16.0",
-    "express-hook": "git+http://code.gddata.net/pub/npm/express-hook.git",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "node-fetch": "^2.3.0",

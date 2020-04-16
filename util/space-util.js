@@ -10,10 +10,11 @@ const antiCrawl = [];
 
 //消息订阅
 sub.on("message", function (channel, message) {
-    antiCrawl.push(message);
-    console.log(channel + ": " + message);
+    const msg = JSON.parse(message);
+    antiCrawl.push(msg);
+    console.log(channel + ": " + msg);
 });
 
-sub.subscribe("antiCrawl");
+sub.subscribe("realLog");
 
 module.exports = antiCrawl;
