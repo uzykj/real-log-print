@@ -3,9 +3,8 @@
  *@dateTime 2019-04-09 13:47
  *@description 临时存储
  */
-var redis = require("redis");
-const conf = require('../conf/redis');
-var sub = redis.createClient(conf.port, conf.host, conf.password);
+var redis = require("./redis-util");
+var sub = redis.createRedis();
 const antiCrawl = [];
 
 //消息订阅
