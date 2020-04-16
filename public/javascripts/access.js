@@ -7,7 +7,7 @@ $(document).ready(function () {
     }
 
     //超时时间
-    window.setTimeout(stopInterval, 50000);
+    window.setTimeout(stopInterval, 24 * 60 * 60 * 1000);
 });
 
 
