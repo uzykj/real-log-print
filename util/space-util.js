@@ -5,7 +5,7 @@
  */
 var redis = require("redis");
 const conf = require('../conf/redis');
-var sub = redis.createClient(conf.port, conf.host);
+var sub = redis.createClient(conf.port, conf.host, conf.password);
 const antiCrawl = [];
 
 //消息订阅
