@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const queue = require('./util/space-util');
 var app = express();
 
 // view engine setup
@@ -33,5 +33,12 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+function schedule() {
+    setTimeout(() => {
+        if (queue.length >= 50) queue.splice(0, 30);
+    }, 10 * 60 * 1000, 'funky');
+
+}
 
 module.exports = app;

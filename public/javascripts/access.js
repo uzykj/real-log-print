@@ -25,8 +25,9 @@ function accessFun() {
                     var item = result[i];
                     html +=
                         `<tr>
+                            <td style="width: 5%; height: 100px">${item.type}</td>
                             <td style="width: 15%; height: 100px">${item.time}</td>
-                            <td style="width: 85%; height: 100px">${JSON.stringify(item.logData)}</td>
+                            <td style="width: 80%; height: 100px">${JSON.stringify(item.logData)}</td>
                         </tr>`;
                 }
                 $('#access_tbody').empty().html(html);

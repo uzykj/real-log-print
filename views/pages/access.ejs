@@ -22,16 +22,18 @@
         <table class="table table-bordered">
             <thead>
             <tr>
+                <th style="width: 5%">类型</th>
                 <th style="width: 15%">时间</th>
-                <th style="width: 85%">日志</th>
+                <th style="width: 80%">日志</th>
             </tr>
             </thead>
             <tbody id="access_tbody">
             <% if(data.length > 0){ %>
                 <% for(var i = 0;i < data.length;i++){ var item = data[i] %>
                 <tr>
+                    <td style="width: 5%; height: 100px"><%= item.type %></td>
                     <td style="width: 15%; height: 100px"><%= item.time %></td>
-                    <td style="width: 85%; height: 100px"><%= JSON.stringify(item.logData) %></td>
+                    <td style="width: 80%; height: 100px"><%= JSON.stringify(item.logData) %></td>
                 </tr>
                 <% } %>
             <% } %>
