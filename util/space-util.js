@@ -5,15 +5,15 @@
  */
 var redis = require("./redis-util");
 var sub = redis.createRedis();
-const antiCrawl = [];
+const queueData = [];
 
 //消息订阅
 sub.on("message", function (channel, message) {
     const msg = JSON.parse(message);
-    antiCrawl.push(msg);
+    queueData.push(msg);
     console.log(channel + ": " + msg);
 });
 
 sub.subscribe("realLog");
 
-module.exports = antiCrawl;
+module.exports = queueData;
